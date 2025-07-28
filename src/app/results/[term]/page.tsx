@@ -1,5 +1,4 @@
 import Gallery from "@/app/components/Gallery";
-import React from "react";
 import type { Metadata } from "next";
 
 export function generateMetadata({ params }: { params: { term: string } }): Metadata {
