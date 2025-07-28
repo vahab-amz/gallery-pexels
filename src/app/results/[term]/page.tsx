@@ -1,12 +1,16 @@
 import Gallery from "@/app/components/Gallery";
 import type { Metadata } from "next";
 
-export function generateMetadata({ params }: { params: { term: string } }): Metadata {
+export async function generateMetadata(
+  { params }: { params: { term: string } }
+): Promise<Metadata> {
   return {
     title: `Results for ${params.term}`,
   };
 }
 
-export default function SearchResults({ params }: { params: { term: string } }) {
+export default function SearchResults(
+  { params }: { params: { term: string } }
+) {
   return <Gallery topic={params.term} />;
 }
