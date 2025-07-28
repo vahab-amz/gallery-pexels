@@ -1,18 +1,13 @@
 import Gallery from "@/app/components/Gallery";
 import React from "react";
+import type { Metadata } from "next";
 
-type Props = {
-  params: {
-    term: string;
-  };
-};
-
-export function generateMetadata({ params: { term } }: Props) {
+export function generateMetadata({ params }: { params: { term: string } }): Metadata {
   return {
-    title: `Results for ${term}`
-  }
+    title: `Results for ${params.term}`,
+  };
 }
 
-export default function SearchResults({ params: { term } }: Props) {
-  return <Gallery topic={term} />
+export default function SearchResults({ params }: { params: { term: string } }) {
+  return <Gallery topic={params.term} />;
 }
