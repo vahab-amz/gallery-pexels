@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-slate-900 min-h-screen">
-        <main className="max-w-[1200px] mx-auto px-4 mb-8 ">
+        <main className="max-w-[1200px] mx-auto px-4 mb-10 ">
             <Navbar />
             <div className="relative top-30 ">
           	  {children}

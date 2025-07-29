@@ -1,16 +1,35 @@
+
+
 import Gallery from "@/app/components/Gallery";
 import type { Metadata } from "next";
 
+type Props = {
+  params: Promise<{ term: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+// static params for pre-rendering
+export function generateStaticParams() {
+  return [
+    { term: "cats" },
+    { term: "dogs" },
+    { term: "nature" },
+  ];
+}
+
+// generate dynamic metadata
 export async function generateMetadata(
-  { params }: { params: { term: string } }
+  { params }: Props
 ): Promise<Metadata> {
+  const { term } = await params;
   return {
-    title: `Results for ${params.term}`,
+    title: `Results for ${term}`,
   };
 }
 
-export default function SearchResults(
-  { params }: { params: { term: string } }
-) {
-  return <Gallery topic={params.term} />;
+// component with awaited params
+export default async function SearchResults({ params }: Props) {
+  const { term } = await params;
+  
+  return <Gallery topic={term} />;
 }
