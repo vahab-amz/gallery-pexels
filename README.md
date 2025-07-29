@@ -11,7 +11,6 @@ A modern image gallery app built with **Next.js 15**, **Tailwind CSS**, **TypeSc
 ## 🚀 Features
 
 - 🔎 Search images by keyword using Pexels API
-- 💡 Light/Dark mode support with CSS variables
 - 🖼️ Blurred placeholders with Base64 for smooth loading
 - 🌐 Infinite scroll up to 80 images
 - 📱 Responsive design with Tailwind CSS
