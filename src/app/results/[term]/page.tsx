@@ -1,9 +1,8 @@
-
-
 import Gallery from "@/app/components/Gallery";
-import Spinner from "@/app/components/Spinner";
 import type { Metadata } from "next";
-import { Suspense } from "react";
+
+export const dynamic = "force-dynamic";
+
 
 type Props = {
   params: Promise<{ term: string }>;
@@ -33,9 +32,5 @@ export async function generateMetadata(
 export default async function SearchResults({ params }: Props) {
   const { term } = await params;
   
-  return (
-    <Suspense fallback={<Spinner/>}>
-      <Gallery topic={term} />
-    </Suspense>
-  );
+  return <Gallery topic={term} />;
 }
