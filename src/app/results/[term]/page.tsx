@@ -1,7 +1,9 @@
 
 
 import Gallery from "@/app/components/Gallery";
+import Spinner from "@/app/components/Spinner";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 type Props = {
   params: Promise<{ term: string }>;
@@ -31,5 +33,9 @@ export async function generateMetadata(
 export default async function SearchResults({ params }: Props) {
   const { term } = await params;
   
-  return <Gallery topic={term} />;
+  return (
+    <Suspense fallback={<Spinner/>}>
+      <Gallery topic={term} />
+    </Suspense>
+  );
 }
